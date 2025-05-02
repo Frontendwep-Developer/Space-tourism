@@ -1,3 +1,6 @@
+
+/* SITENAV */
+
 const elsSitenavLink = document.querySelectorAll('.sitenav__link');
 // const elsSitenavItem = document.querySelectorAll('.sitenav__item'); // Bu o'zgaruvchi kerak emas, shuning uchun olib tashladim
 
@@ -61,6 +64,9 @@ elsSitenavLink.forEach(link => {
   });
 } */
 
+
+
+  /* DESTINATION-TABS */
   document.addEventListener('DOMContentLoaded', function() {
     // Kerakli elementlarni tanlab olamiz
     const tabLinks = document.querySelectorAll('.js-tab-link'); // Barcha tab linklari
@@ -118,11 +124,80 @@ elsSitenavLink.forEach(link => {
             if (initialPanel) {
                 // Barcha panellardan 'active' klassini olib tashlaymiz (ehtiyot shart)
                 tabPanels.forEach(panel => {
-                   panel.classList.remove('tabpanels__item--active');
+                  panel.classList.remove('tabpanels__item--active');
                 });
                 // Boshlang'ich faol panelga 'active' klassini qo'shamiz
                 initialPanel.classList.add('tabpanels__item--active');
             }
         }
     }
+  });
+
+
+
+  /* CREW */
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Kerakli ekipaj elementlarini tanlab olamiz
+    const crewTabLinks = document.querySelectorAll('.js-crew-tab-link'); // Barcha ekipaj tab linklari
+    const crewTabItems = document.querySelectorAll('.crew-tabs__item'); // Barcha ekipaj tab ro'yxati elementlari (li)
+    const crewTabPanels = document.querySelectorAll('.crew-tabpanels__item'); // Barcha ekipaj tab panel kontentlari
+
+    // Har bir ekipaj tab link uchun click hodisasi tinglovchisini qo'shamiz
+    crewTabLinks.forEach(link => {
+      link.addEventListener('click', function(event) {
+        // Link bosilganda sahifani tepaga sakratish yoki o'tishni to'xtatamiz
+        event.preventDefault();
+
+        // Bosilgan linkning href atributidan maqsad ekipaj panel ID sini olamiz (masalan: "#commander")
+        const targetPanelSelector = event.target.getAttribute('href');
+
+        // --- Hozirgi faol ekipaj elementlaridagi 'active' klasslarini olib tashlash ---
+
+        // Hamma ekipaj tab itemlaridan 'crew-tabs__item--active' klassini olib tashlaymiz
+        crewTabItems.forEach(item => {
+          item.classList.remove('crew-tabs__item--active');
+        });
+
+        // Hamma ekipaj tab panellaridan 'crew-tabpanels__item--active' klassini olib tashlaymiz
+        crewTabPanels.forEach(panel => {
+          panel.classList.remove('crew-tabpanels__item--active');
+        });
+
+        // --- Bosilgan link va unga mos keladigan ekipaj panelini faol qilish ---
+
+        // Bosilgan linkning ota elementi (<li>) ga 'crew-tabs__item--active' klassini qo'shamiz
+        const clickedTabItem = event.target.parentElement;
+        if (clickedTabItem) {
+          clickedTabItem.classList.add('crew-tabs__item--active');
+        }
+
+        // href atributidan olingan selector (masalan, '#commander') yordamida maqsad ekipaj panelini topamiz
+        const targetPanel = document.querySelector(targetPanelSelector);
+        // Topilgan panelga 'crew-tabpanels__item--active' klassini qo'shamiz
+        if (targetPanel) {
+          targetPanel.classList.add('crew-tabpanels__item--active');
+        }
+      });
+    });
+
+      // --- Sahifa birinchi marta yuklanganda boshlang'ich faol ekipaj panelini ko'rsatish ---
+      // HTML-ingizda birinchi ekipaj tab ('#commander') allaqachon 'active' qilingan.
+      // Lekin JavaScript orqali buni tekshirib, mos panelni ko'rsatish yaxshi amaliyot:
+      const initialActiveCrewTabItem = document.querySelector('.crew-tabs__item--active');
+      if (initialActiveCrewTabItem) {
+          const initialActiveCrewLink = initialActiveCrewTabItem.querySelector('.js-crew-tab-link');
+          if (initialActiveCrewLink) {
+              const initialCrewPanelSelector = initialActiveCrewLink.getAttribute('href');
+              const initialCrewPanel = document.querySelector(initialCrewPanelSelector);
+              if (initialCrewPanel) {
+                  // Barcha ekipaj panellaridan 'active' klassini olib tashlaymiz (ehtiyot shart)
+                  crewTabPanels.forEach(panel => {
+                    panel.classList.remove('crew-tabpanels__item--active');
+                  });
+                  // Boshlang'ich faol ekipaj paneliga 'active' klassini qo'shamiz
+                  initialCrewPanel.classList.add('crew-tabpanels__item--active');
+              }
+          }
+      }
   });

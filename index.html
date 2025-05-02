@@ -3,16 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project</title>
+  <title>Space tourism</title>
 
 
   <!-- Stylesheets -->
 <link rel="stylesheet" href="css/normalize.css">
 <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="home-page">
 
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="site-header__container container">
+      <a class="logo" href="index.html">
+        <img class="logo__img" src="img/Logo.svg" alt="Space tourism logo" width="48" height="48">
+      </a>
 
+      <hr class="site-header__divider"></hr>
+
+      <nav class="sitenav">
+        <ul class="sitenav__list">
+          <li class="sitenav__item sitenav__item--active"><a class="sitenav__link" href="index.html">HOME</a></li>
+          <li class="sitenav__item"><a class="sitenav__link" href="destination.html">DESTINATION</a></li>
+          <li class="sitenav__item"><a class="sitenav__link" href="#">CREW</a></li>
+          <li class="sitenav__item"><a class="sitenav__link" href="#">TECHNOLOGY</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="main-content">
+    <section class="home">
+      <div class="home__container container">
+        <div class="home__content">
+          <span class="home__description">SO, YOU WANT TO TRAVEL TO</span>
+          <h2 class="home__heading">Space</h2>
+          <p class="home__text">Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we’ll give you a truly out of this world experience!</p>
+        </div>
+        <button class="home__button button">
+          Explore
+        </button>
+      </div>
+    </section>
+  </main>
 
 
   <script src="js/main.js"></script>

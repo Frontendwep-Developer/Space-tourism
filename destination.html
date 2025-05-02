@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space tourism</title>
+
+
+  <!-- Stylesheets -->
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="destination-page">
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="site-header__container container">
+      <a class="logo" href="index.html">
+        <img class="logo__img" src="img/Logo.svg" alt="Space tourism logo" width="48" height="48">
+      </a>
+
+      <hr class="site-header__divider"></hr>
+
+      <nav class="sitenav">
+        <ul class="sitenav__list">
+          <li class="sitenav__item"><a class="sitenav__link" href="index.html">HOME</a></li>
+          <li class="sitenav__item sitenav__item--active"><a class="sitenav__link" href="destination.html">DESTINATION</a></li>
+          <li class="sitenav__item"><a class="sitenav__link" href="#">CREW</a></li>
+          <li class="sitenav__item"><a class="sitenav__link" href="#">TECHNOLOGY</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- DESTINATION -->
+    <section class="destination">
+      <div class="destination__container container">
+        <h2 class="destination__heading">Pick your destination</h2>
+
+        <div class="tabs-panels-wrapper">
+        <!-- TABS -->
+        <div class="tabs">
+          <!-- TABS-LIST -->
+          <ul class="tabs__list">
+            <li class="tabs__item tabs__item--active">
+              <a class="tabs__link js-tab-link" href="#moon">Moon</a>
+            </li>
+            <li class="tabs__item">
+              <a class="tabs__link js-tab-link" href="#mars" >Mars</a>
+            </li>
+            <li class="tabs__item">
+              <a class="tabs__link js-tab-link" href="#europa">Europa</a>
+            </li>
+            <li class="tabs__item">
+              <a class="tabs__link js-tab-link" href="#titan">Titan</a>
+            </li>
+          </ul>
+        </div>
+
+
+      <!-- TABS-PANELS -->
+      <div class="tabpanels">
+
+        <div class="tabpanels__item tabpanels__item--active" id="moon">
+          <section class="destination-tab-panel">
+            <img class="destination-tab-pnel__img" src="img/moon.svg" alt="Moon" width="480" height="480">
+
+            <div class="destination-tab-pnel__content">
+              <h2 class="destination-tab-panel__title">Moon</h2>
+              <p class="destination-tab-panel__text">See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.</p>
+
+              <div class="destination-tab-panel__stat stat">
+                <dl class="stat__item">
+                  <dt class="stat__dt">AVG. DISTANCE</dt>
+                  <dd class="stat__dd">384,400 km</dd>
+                </dl>
+                <dl class="stat__item">
+                  <dt class="stat__dt">225 MIL. km</dt>
+                  <dd class="stat__dd">3 days</dd>
+                </dl>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="tabpanels__item" id="mars">
+          <section class="destination-tab-panel">
+            <img class="destination-tab-pnel__img" src="img/Mars.svg" alt="Mars" width="480" height="480">
+
+            <div class="destination-tab-pnel__content">
+              <h2 class="destination-tab-panel__title">Mars</h2>
+              <p class="destination-tab-panel__text">Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, the tallest planetary mountain in our solar system. It’s two and a half times the size of Everest!</p>
+
+              <div class="destination-tab-panel__stat stat">
+                <dl class="stat__item">
+                  <dt class="stat__dt">AVG. DISTANCE</dt>
+                  <dd class="stat__dd">225 MIL. km</dd>
+                </dl>
+                <dl class="stat__item">
+                  <dt class="stat__dt">EST. TRAVEL TIME</dt>
+                  <dd class="stat__dd">9 months</dd>
+                </dl>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="tabpanels__item" id="europa">
+          <section class="destination-tab-panel">
+            <img class="destination-tab-pnel__img" src="img/Europa.svg" alt="Europa" width="480" height="480">
+
+            <div class="destination-tab-pnel__content">
+              <h2 class="destination-tab-panel__title">Europa</h2>
+              <p class="destination-tab-panel__text">The smallest of the four Galilean moons orbiting Jupiter, Europa is a winter lover’s dream. With an icy surface, it’s perfect for a bit of ice skating, curling, hockey, or simple relaxation in your snug wintery curopa</p>
+
+              <div class="destination-tab-panel__stat stat">
+                <dl class="stat__item">
+                  <dt class="stat__dt">AVG. DISTANCE</dt>
+                  <dd class="stat__dd">628 MIL. km</dd>
+                </dl>
+                <dl class="stat__item">
+                  <dt class="stat__dt">EST. TRAVEL TIME</dt>
+                  <dd class="stat__dd">3 years</dd>
+                </dl>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="tabpanels__item" id="titan">
+          <section class="destination-tab-panel">
+            <img class="destination-tab-pnel__img" src="img/Titan.svg" alt="Titan" width="480" height="480">
+
+            <div class="destination-tab-pnel__content">
+              <h2 class="destination-tab-panel__title">Titan</h2>
+              <p class="destination-tab-panel__text">The only moon known to have a dense atmosphere other than Earth, Titan is a home away from home (just a few hundred degrees colder!). As a bonus, you get striking views of the Rings of Satitan</p>
+
+              <div class="destination-tab-panel__stat stat">
+                <dl class="stat__item">
+                  <dt class="stat__dt">AVG. DISTANCE</dt>
+                  <dd class="stat__dd">1.6 BIL. km</dd>
+                </dl>
+                <dl class="stat__item">
+                  <dt class="stat__dt">EST. TRAVEL TIME</dt>
+                  <dd class="stat__dd">7 years</dd>
+                </dl>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+        </div>
+
+    </div>
+  </section>
+
+  </main>
+
+
+  <script src="js/main.js"></script>
+</body>
+</html>

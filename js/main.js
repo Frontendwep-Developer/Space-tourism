@@ -1,37 +1,77 @@
 
 /* SITENAV */
 
-const elsSitenavLink = document.querySelectorAll('.sitenav__link');
-// const elsSitenavItem = document.querySelectorAll('.sitenav__item'); // Bu o'zgaruvchi kerak emas, shuning uchun olib tashladim
+// Barcha navigatsiya havolalarini (<a> teglarini) topamiz
+const navLinks = document.querySelectorAll('.sitenav__link');
 
+// Hozirda aktiv bo'lgan `<li>` elementini topish uchun funksiya
+function findActiveItem() {
+    return document.querySelector('.sitenav__item--active');
+}
 
-// Barcha navigatsiya linklarini tanlab olamiz
+// Har bir havola uchun hodisa tinglovchisini qo'shamiz
+navLinks.forEach(link => {
+    link.addEventListener('click', function(event) {
+        // Agar havola bosilganda sahifa yangilanishini xohlamasangiz,
+        // quyidagi qatorni kommentdan chiqarishingiz kerak bo'ladi.
+        // Bu odatda bir sahifali ilovalar (SPA) uchun kerak.
+        // event.preventDefault();
 
-// Tanlab olingan har bir link uchun sikl (loop) orqali o'tamiz
-elsSitenavLink.forEach(link => {
-  // Har bir linkga 'click' hodisasi tinglovchisini (event listener) qo'shamiz
-  link.addEventListener('click', function(event) {
+        // Hozirda aktiv bo'lgan bandni topamiz
+        const currentActiveItem = findActiveItem();
 
-    // Oldingi faol (active) elementni *hozirda* topish va klassini olib tashlash
-    // (Agar navigatsiyada faqat bitta element faol bo'lishi kerak bo'lsa)
-    const currentActiveItem = document.querySelector('.sitenav__item--active'); // <--- Mana bu qator event listener ichiga ko'chirildi
-    if (currentActiveItem) {
-      currentActiveItem.classList.remove('sitenav__item--active');
+        // Bosilgan havola tegining ota-ona `<li>` elementini topamiz
+        // 'this' bu yerda bosilgan `<a>` elementiga ishora qiladi
+        const clickedListItem = this.closest('.sitenav__item'); // .parentElement ham ishlaydi, lekin .closest robustroq
+
+        // Agar joriy aktiv band mavjud bo'lsa va u bosilgan band bilan bir xil bo'lmasa
+        if (currentActiveItem && currentActiveItem !== clickedListItem) {
+            // Undan 'active' klassini olib tashlaymiz
+            currentActiveItem.classList.remove('sitenav__item--active');
+        }
+
+        // Agar bosilgan `<li>` topilgan bo'lsa (ehtimollik uchun tekshiruv)
+        // va u hali aktiv bo'lmasa (takroriy qo'shishni oldini olish)
+        if (clickedListItem && !clickedListItem.classList.contains('sitenav__item--active')) {
+             // Bosilgan havola tegining ota-ona `<li>` elementiga 'active' klassini qo'shamiz
+            clickedListItem.classList.add('sitenav__item--active');
+        }
+
+        // Agar event.preventDefault() ishlatilgan bo'lsa va siz baribir
+        // navigatsiyani amalga oshirmoqchi bo'lsangiz (masalan, kichik kechikish bilan):
+        // setTimeout(() => {
+        //     window.location.href = this.href;
+        // }, 100); // 100 millisekunddan keyin o'tish
+    });
+});
+
+// Sahifa yuklanganda URL ga mos keladigan bandni aktiv qilish (qo'shimcha funksiya)
+document.addEventListener('DOMContentLoaded', () => {
+    const currentPage = window.location.pathname.split('/').pop(); // Joriy fayl nomi (masalan, 'crew.html')
+    if (currentPage) {
+        navLinks.forEach(link => {
+            const linkPage = link.getAttribute('href').split('/').pop();
+            if (linkPage === currentPage) {
+                const currentActiveItem = findActiveItem();
+                if (currentActiveItem) {
+                    currentActiveItem.classList.remove('sitenav__item--active');
+                }
+                link.closest('.sitenav__item').classList.add('sitenav__item--active');
+            }
+        });
     }
-
-    // Bosilgan linkning ota elementini (ya'ni, <li> elementini) topamiz
-    const parentItem = event.target.parentElement;
-
-    // Ota elementga 'sitenav__item--active' klassini qo'shamiz
-    // Qo'shimcha tekshiruv: ota element bor va u .sitenav__item klassiga ega ekanligini tekshirish
-    if (parentItem && parentItem.classList.contains('sitenav__item')) {
-      parentItem.classList.add('sitenav__item--active');
+    // Agar bosh sahifa uchun maxsus belgi bo'lsa (masalan, index.html yoki bo'sh)
+    else if (window.location.pathname === '/' || currentPage === 'index.html' || currentPage === '') {
+        const currentActiveItem = findActiveItem();
+        if (currentActiveItem) {
+            currentActiveItem.classList.remove('sitenav__item--active');
+        }
+         // Home linkini topib aktiv qilish
+        const homeLink = document.querySelector('.sitenav__link[href="index.html"]');
+        if (homeLink) {
+            homeLink.closest('.sitenav__item').classList.add('sitenav__item--active');
+        }
     }
-
-    // Linkning standart harakatini (sahifani yangilash/o'tish) to'xtatish
-    // Agar sahifani yangilash kerak bo'lmasa, bu qatorni qo'shishingiz mumkin.
-    // event.preventDefault();
-  });
 });
 
 

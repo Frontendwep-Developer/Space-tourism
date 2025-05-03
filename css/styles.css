@@ -102,7 +102,7 @@ select:-webkit-autofill:focus {
 width: 100%;
 max-width: 1540px;
 padding-left: 50px;
-padding-right: 50px;
+padding-right: 0;
 margin-left: auto;
 margin-right: auto;
 }
@@ -756,4 +756,133 @@ only screen and (     -o-min-device-pixel-ratio: 2/1),
 only screen and (        min-device-pixel-ratio: 2),
 only screen and (                min-resolution: 192dpi),
 only screen and (                min-resolution: 2dppx) {
+}
+
+/* HOME */
+@media only screen and (max-width: 1400px) {
+
+  .button {
+    margin-right: 90px;
+  }
+}
+
+
+@media only screen and (max-width: 1100px) {
+  .home-page {
+    background-image: url(../img/Tablet-Home-bg.svg);
+  }
+
+
+  .home {
+  padding-top: 150px;
+  padding-bottom: 126px;
+  }
+
+  .home__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .button {
+    margin-top: 100px;
+    margin-right: 0;
+  }
+}
+
+
+@media only screen and (max-width: 900px) {
+  .sitenav {
+    display: none;
+  }
+}
+
+
+@media only screen and (max-width: 780px) {
+  .site-header {
+    display: none;
+  }
+
+  .home {
+    padding-top: 256px;
+    padding-bottom: 60px;
+  }
+
+  .home__container {
+    padding-left: 0;
+  }
+
+  .home__content {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home__description {
+    font-size: 24px;
+  }
+
+  .home__heading {
+    font-size: 130px;
+    margin-bottom: 30px;
+  }
+
+  .button {
+    width: 144px;
+    height: 144px;
+    font-size: 26px;
+  }
+
+}
+
+@media only screen and (max-width: 650px) {
+
+  .home__content {
+    max-width: 340px;
+  }
+
+  .home__description {
+    font-size: 18px;
+  }
+
+  .home__heading {
+    font-size: 100px;
+    margin-bottom: 30px;
+  }
+
+  .button {
+    width: 144px;
+    height: 144px;
+    font-size: 26px;
+  }
+}
+
+
+@media only screen and (max-width: 420px) {
+  .home__content {
+    max-width: 200px;
+  }
+
+  .home__description {
+    font-size: 14px;
+  }
+
+  .home__heading {
+    font-size: 60px;
+    margin-bottom: 30px;
+  }
+
+  .home__text {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+
+  .button {
+    width: 100px;
+    height: 100px;
+    font-size: 16px;
+  }
 }

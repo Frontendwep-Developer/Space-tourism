@@ -201,3 +201,71 @@ elsSitenavLink.forEach(link => {
           }
       }
   });
+
+
+  /* TECHNOLOGY */
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Kerakli texnologiya elementlarini tanlab olamiz
+    const techTabLinks = document.querySelectorAll('.js-technology-tab-link'); // Barcha texnologiya tab linklari
+    const techTabItems = document.querySelectorAll('.technology-tabs__item'); // Barcha texnologiya tab ro'yxati elementlari (li)
+    const techTabPanels = document.querySelectorAll('.technology-tabpanels__item'); // Barcha texnologiya tab panel kontentlari
+
+    // Har bir texnologiya tab link uchun click hodisasi tinglovchisini qo'shamiz
+    techTabLinks.forEach(link => {
+      link.addEventListener('click', function(event) {
+        // Link bosilganda sahifani tepaga sakratish yoki o'tishni to'xtatamiz
+        event.preventDefault();
+
+        // Bosilgan linkning href atributidan maqsad texnologiya panel ID sini olamiz (masalan: "#launch-vehicle")
+        const targetPanelSelector = event.target.getAttribute('href');
+
+        // --- Hozirgi faol texnologiya elementlaridagi 'active' klasslarini olib tashlash ---
+
+        // Hamma texnologiya tab itemlaridan 'technology-tabs__item--active' klassini olib tashlaymiz
+        techTabItems.forEach(item => {
+          item.classList.remove('technology-tabs__item--active');
+        });
+
+        // Hamma texnologiya tab panellaridan 'technology-tabpanels__item--active' klassini olib tashlaymiz
+        techTabPanels.forEach(panel => {
+          panel.classList.remove('technology-tabpanels__item--active');
+        });
+
+        // --- Bosilgan link va unga mos keladigan texnologiya panelini faol qilish ---
+
+        // Bosilgan linkning ota elementi (<li>) ga 'technology-tabs__item--active' klassini qo'shamiz
+        const clickedTabItem = event.target.parentElement;
+        if (clickedTabItem) {
+          clickedTabItem.classList.add('technology-tabs__item--active');
+        }
+
+        // href atributidan olingan selector (masalan, '#launch-vehicle') yordamida maqsad texnologiya panelini topamiz
+        const targetPanel = document.querySelector(targetPanelSelector);
+        // Topilgan panelga 'technology-tabpanels__item--active' klassini qo'shamiz
+        if (targetPanel) {
+          targetPanel.classList.add('technology-tabpanels__item--active');
+        }
+      });
+    });
+
+      // --- Sahifa birinchi marta yuklanganda boshlang'ich faol texnologiya panelini ko'rsatish ---
+      // HTML-ingizda birinchi texnologiya tab ('#launch-vehicle') allaqachon 'active' qilingan.
+      // Lekin JavaScript orqali buni tekshirib, mos panelni ko'rsatish yaxshi amaliyot:
+      const initialActiveTechTabItem = document.querySelector('.technology-tabs__item--active');
+      if (initialActiveTechTabItem) {
+          const initialActiveTechLink = initialActiveTechTabItem.querySelector('.js-technology-tab-link');
+          if (initialActiveTechLink) {
+              const initialPanelSelector = initialActiveTechLink.getAttribute('href');
+              const initialPanel = document.querySelector(initialPanelSelector);
+              if (initialPanel) {
+                  // Barcha texnologiya panellaridan 'active' klassini olib tashlaymiz (ehtiyot shart)
+                  techTabPanels.forEach(panel => {
+                    panel.classList.remove('technology-tabpanels__item--active');
+                  });
+                  // Boshlang'ich faol texnologiya paneliga 'active' klassini qo'shamiz
+                  initialPanel.classList.add('technology-tabpanels__item--active');
+              }
+          }
+      }
+  });

@@ -185,6 +185,7 @@ margin-right: auto;
   padding-bottom: 36px;
   margin: 0;
   text-decoration: none;
+  text-transform: uppercase;
   color: rgb(255, 255, 255);
   font-size: 14px;
   line-height: 24px;
@@ -511,10 +512,8 @@ margin-right: auto;
   background-color: #fff;
 }
 
-/* CREW-TAB-PANELS */
-.crew-tabpanels {
-}
 
+/* CREW-TAB-PANELS */
 .crew-tabpanels__item {
   display: none;
   justify-content: space-between;
@@ -539,7 +538,6 @@ margin-right: auto;
   padding-top: 197px;
   padding-bottom: 197px;
 }
-
 
 .crew-tab-panel__job-name {
   margin-top: 0;
@@ -571,6 +569,150 @@ margin-right: auto;
   font-weight: normal;
 }
 
+
+/* TECHNLOGY */
+.technology-page {
+  background-image: url(../img/technology-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.technology {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.technology__container {
+  width: 100%;
+  max-width: 1210px;
+}
+
+.technology__heading {
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-size: 26px;
+  line-height: normal;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+
+/* TECHNOLOGY-TABS */
+.technology-tabs-panels-wrapper {
+  position: relative;
+  display: flex;
+  padding-top: 67px;
+  padding-bottom: 67px;
+}
+
+.technology-tabs {
+  position: absolute;
+  z-index: 500;
+  display: flex;
+  left: 0;
+  bottom: 210px;
+}
+
+.technology-tabs__list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.technology-tabs__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1px solid var(--line-divider);
+}
+
+.technology-tabs__item:not(:last-child) {
+  margin-bottom: 32px;
+}
+
+.technology-tabs__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 28px;
+  line-height: normal;
+  font-weight: normal;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 50%;
+  border: 1px solid transparent;
+}
+
+.technology-tabs__link:hover {
+  border-color: #fff;
+}
+
+.technology-tabs__item--active .technology-tabs__link {
+  background-color: #fff;
+  color: var(--balck);
+}
+
+
+/* TECHNOLOGY-TAB-PANEL */
+.technology-tabpanels__item {
+  display: none;
+}
+
+.technology-tabpanels__item--active {
+  display: block;
+}
+
+.technology-tab-panel {
+  display: flex;
+  align-items: center;
+  padding-left: 144px;
+}
+
+.technology-tab-panel__content {
+  max-width: 491px;
+  margin-right: 32px;
+}
+
+.technology-tab-panel__terminology {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 26px;
+  line-height: normal;
+  text-transform: uppercase;
+  font-weight: normal;
+  color: rgb(255, 255, 255, 0.5);
+}
+
+.technology-tab-panel__title {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-size: 56px;
+  text-transform: uppercase;
+  line-height: normal;
+  font-weight: normal;
+}
+
+.technology-tab-panel__text {
+  padding: 0;
+  margin: 0;
+  font-size: 22px;
+  line-height: normal;
+  letter-spacing: 0;
+  color: var(--blue);
+  font-weight: normal;
+}
+
+.technology-tab-panel__img {
+  margin-right: -150px;
+}
 
 /* RETINA */
 @media
